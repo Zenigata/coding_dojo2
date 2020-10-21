@@ -16,7 +16,7 @@ public final class App {
     }
 
     public static boolean isLeap(int number) {
-        if ((number % 400 == 0) && (number % 400 == 0)) {
+        if ((number % 400 == 0) && (number % 100 == 0)) {
             return true;
         } else {
             return false;
