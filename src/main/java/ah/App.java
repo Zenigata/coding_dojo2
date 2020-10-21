@@ -17,9 +17,10 @@ public static void main(String[] args) {
 }
 
 public static boolean isLeap(int year) {
-if (year % 400 == 0) {
-    return true;
-} else   
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)){
+    return true; //  étape 1 : année divisible par 400 = bissextile 
+    }  // étape 2 : année divisible par 4 mais pas par 100 = bissextile
     return false;
-}
-}
+    }
+
+} 
