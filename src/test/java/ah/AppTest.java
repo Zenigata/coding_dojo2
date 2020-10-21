@@ -14,6 +14,7 @@ public class AppTest {
         assertEquals (true, App.isLeap(2000));
         assertEquals (false, App.isLeap(2001));
         assertEquals (true, App.isLeap(1600));
+        assertEquals (false, App.isLeap(1700));
     }
 
 }
