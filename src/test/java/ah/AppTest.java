@@ -26,7 +26,9 @@ public class AppTest {
     @Test
     public  void numberToWord() {
         assertEquals("zero",  App.convert(0)); //test unité 0 vers zero
-        assertEquals("one",  App.convert(1)); // test unité 1 vers un
+        assertEquals("one",  App.convert(1)); // test unité 1 vers one
+        assertEquals("five",  App.convert(5));//test unité 5 vers five
+        assertEquals("eighteen",  App.convert(18)); // test 18 vers eighteen
 
     }
 

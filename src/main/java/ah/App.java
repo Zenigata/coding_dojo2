@@ -32,12 +32,20 @@ public static boolean isLeap(int year) {
 
 
 public static String convert(int number) {
-    if (number == 1) { // convertir 1 en un
+    if (number == 5) { // convertir 5 en "five"
+        return "five";
+    }
+    if (number == 1) { // convertir 1 en "one"
         return "one";
     }
-      return "zero"; // convertir 0 en zero
+
+    if (number == 18) {
+        return "eighteen";
+    }
+      return "zero"; // convertir 0 en "zero"
 }
 
+String [] numberWord = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "nineteen", "twenty"};
 }
       
  
