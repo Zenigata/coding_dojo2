@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class AppTest {
 
     @Test
+    // est-ce une année bissextile ou non
     public void checkIfLeap() {
         assertEquals(true, App.isLeap(2000));
         assertEquals(false, App.isLeap(2001));
@@ -21,4 +22,10 @@ public class AppTest {
         assertEquals(false, App.isLeap(1700));
         assertEquals(false, App.isLeap(2100));
     }
+
+    @Test
+    public  void numberToWord() {
+        assertEquals("zero",  App.convert(0)); //test unité 0 vers zero
+    }
+
 }

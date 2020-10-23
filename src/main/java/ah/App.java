@@ -1,9 +1,15 @@
 package ah;
 
+import javax.naming.ldap.SortKey;
+
 /**
  * Hello world!
  */
 public final class App {
+public static Object convertor;
+
+
+
 private App() {
 }
 
@@ -23,4 +29,12 @@ public static boolean isLeap(int year) {
     return false;
     }
 
-} 
+
+
+public static String convert(int number) {
+      return "zero"; // convertir 0 en zero
+}
+
+}
+      
+ 
