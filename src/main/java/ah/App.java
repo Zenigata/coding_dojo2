@@ -32,6 +32,9 @@ public static boolean isLeap(int year) {
 
 
 public static String convert(int number) {
+    if (number == 1) { // convertir 1 en un
+        return "one";
+    }
       return "zero"; // convertir 0 en zero
 }
 

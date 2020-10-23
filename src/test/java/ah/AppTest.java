@@ -26,6 +26,8 @@ public class AppTest {
     @Test
     public  void numberToWord() {
         assertEquals("zero",  App.convert(0)); //test unité 0 vers zero
+        assertEquals("one",  App.convert(1)); // test unité 1 vers un
+
     }
 
 }
