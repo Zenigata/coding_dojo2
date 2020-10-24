@@ -37,6 +37,10 @@ public static String convert(int number) {
     if (number == 30) {
         return "thirty";
     }
+
+    if (number == 60) {
+        return "sixty";
+    }
       return numberWord[number]; // refactorer
 }
 
