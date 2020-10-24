@@ -34,7 +34,9 @@ public class AppTest {
         assertEquals("twenty", App.convert(20)); // test 20 to twenty avec la refactorisation
         assertEquals("thirty", App.convert(30)); // test 30 to thirty
         assertEquals("sixty", App.convert(60)); // test 60 to sixty
-        //assertEquals("sixty one", App.convert(61));
+        assertEquals("eighty", App.convert(80)); // test 80 to eighty
+        assertEquals("hundred", App.convert(100)); //test 100 to hundred
+        //assertEquals("sixty one", App.convert(61)); // test 61 to sixty one
     }
 
 }
