@@ -33,7 +33,10 @@ public static boolean isLeap(int year) {
 
 public static String convert(int number) {
     String [] numberWord = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"};
-
+    String [] numberNTy = {"thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+    if (number == 30) {
+        return "thirty";
+    }
       return numberWord[number]; // refactorer
 }
 
