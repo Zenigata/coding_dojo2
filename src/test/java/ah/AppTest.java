@@ -36,6 +36,8 @@ public class AppTest {
         assertEquals("sixty", App.convert(60)); // test 60 to sixty
         assertEquals("eighty", App.convert(80)); // test 80 to eighty
         assertEquals("hundred", App.convert(100)); //test 100 to hundred
+        assertEquals("two hundred", App.convert(200));//test 200 to two hundred
+        assertEquals("seven hundred", App.convert(700));//test 700 to seven hundred
         //assertEquals("sixty one", App.convert(61)); // test 61 to sixty one
     }
 

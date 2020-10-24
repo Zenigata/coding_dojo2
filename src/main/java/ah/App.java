@@ -31,10 +31,10 @@ public final class App {
         String[] fromZeroToTwenty = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                 "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"};
         String[] theTens = {"ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        String[] hundreds = { "hundred"};
+        String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
         
-        if (number == 100) {
-            return hundreds[number / 100 - 1];
+        if (cEstUneCentaine(number)) {
+            return theHundreds[number / 100 - 1];
         }
        
         if (cEstUneDizaine(number)) {
@@ -42,6 +42,10 @@ public final class App {
         }
         
         return fromZeroToTwenty[number];
+    }
+
+    private static boolean cEstUneCentaine(int number) {
+                return number >= 100;
     }
 
     private static boolean cEstUneDizaine(int number) {
