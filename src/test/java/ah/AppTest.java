@@ -41,6 +41,9 @@ public class AppTest {
         assertEquals("twenty one", App.convert(21)); // test 21 to twenty one
         assertEquals("twenty eight", App.convert(28)); // test 28 to twenty eight
         assertEquals("thirty one", App.convert(31));
+        assertEquals("thirty five", App.convert(35));
+        
+        
     }
 
 }

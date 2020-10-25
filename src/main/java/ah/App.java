@@ -35,11 +35,10 @@ public final class App {
         String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
 
-                
-
-        if (number == 31) {
+        if (cEstEntre31Et39(number)) {
             return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - 30];
-        }        
+        }
+     
         if (cEstEntre21Et29(number)) {
             return fromZeroToTwenty[20] + " " + fromZeroToTwenty[number - 20];
         }
@@ -53,6 +52,10 @@ public final class App {
         }
 
         return fromZeroToTwenty[number];
+    }
+
+    private static boolean cEstEntre31Et39(int number) {
+        return number >= 31 && number <= 39;
     }
 
     private static boolean cEstEntre21Et29(int number) {
