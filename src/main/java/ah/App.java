@@ -28,24 +28,34 @@ public final class App {
     }
 
     public static String convert(int number) {
-        String[] fromZeroToTwenty = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-                "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"};
-        String[] theTens = {"ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
-        
+        String[] fromZeroToTwenty = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+                "nineteen", "twenty" };
+        String[] theTens = { "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+        String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred",
+                "six hundred", "seven hundred", "eight hundred", "nine hundred" };
+
+        if (cEstEntre21Et29(number)) {
+            return fromZeroToTwenty[20] + " " + fromZeroToTwenty[number - 20];
+        }
+
         if (cEstUneCentaine(number)) {
             return theHundreds[number / 100 - 1];
         }
-       
+
         if (cEstUneDizaine(number)) {
             return theTens[number / 10 - 1];
         }
-        
+
         return fromZeroToTwenty[number];
     }
 
+    private static boolean cEstEntre21Et29(int number) {
+        return number >= 21 && number <= 29;
+    }
+
     private static boolean cEstUneCentaine(int number) {
-                return number >= 100;
+        return number >= 100;
     }
 
     private static boolean cEstUneDizaine(int number) {
