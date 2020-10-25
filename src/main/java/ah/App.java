@@ -35,6 +35,11 @@ public final class App {
         String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
 
+                
+
+        if (number == 31) {
+            return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - 30];
+        }        
         if (cEstEntre21Et29(number)) {
             return fromZeroToTwenty[20] + " " + fromZeroToTwenty[number - 20];
         }
