@@ -35,14 +35,11 @@ public final class App {
         String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
 
-        if (cEstEntre31Et39(number)) {
-            return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - 30];
+        int dizainePilePoil = diviserPuisMultiplierPar10LEntier(number);
+        if (number >= 21 && number <= 99 && number != dizainePilePoil) {
+            return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - dizainePilePoil];
         }
-     
-        if (cEstEntre21Et29(number)) {
-            return fromZeroToTwenty[20] + " " + fromZeroToTwenty[number - 20];
-        }
-
+        
         if (cEstUneCentaine(number)) {
             return theHundreds[number / 100 - 1];
         }
@@ -54,12 +51,8 @@ public final class App {
         return fromZeroToTwenty[number];
     }
 
-    private static boolean cEstEntre31Et39(int number) {
-        return number >= 31 && number <= 39;
-    }
-
-    private static boolean cEstEntre21Et29(int number) {
-        return number >= 21 && number <= 29;
+    private static int diviserPuisMultiplierPar10LEntier(int number) {
+        return number / 10 * 10;
     }
 
     private static boolean cEstUneCentaine(int number) {
