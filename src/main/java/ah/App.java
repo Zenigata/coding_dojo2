@@ -37,7 +37,15 @@ public final class App {
         int dizainePilePoil = diviserPuisMultiplierPar10LEntier(chiffreDepart);
         int centainePilePoil = diviserPuisMultiplierPar100LEntier(chiffreDepart);
   
-        
+      
+
+        if (chiffreDepart>220 && cEstUneDizaine(chiffreDepart - 100) && chiffreDepart != centainePilePoil) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart-200) /10 -1];
+        }
+
+        if (chiffreDepart>200 && chiffreDepart<=220) {
+           return centaines[chiffreDepart / 100 - 1] + " and " + deZeroAVingt[chiffreDepart - centainePilePoil];
+        }
         
         if (centaineSuperieureA120(chiffreDepart) && chiffreDepart != centainePilePoil && chiffreDepart != dizainePilePoil) {
             return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1] + " " + deZeroAVingt[chiffreDepart - dizainePilePoil];

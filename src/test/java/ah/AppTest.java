@@ -51,6 +51,12 @@ public class AppTest {
         assertEquals("one hundred and ninety", App.convert(190));
         assertEquals("one hundred and ninety five", App.convert(195));
         assertEquals("one hundred and fourty five", App.convert(145));
+        assertEquals("two hundred and sixteen", App.convert(216));
+        assertEquals("two hundred and eleven", App.convert(211));
+        assertEquals("two hundred and fifty", App.convert(250));
+        assertEquals("two hundred and seventy", App.convert(270));
+
+
     }
 
 }
