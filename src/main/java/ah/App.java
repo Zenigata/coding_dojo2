@@ -1,7 +1,5 @@
 package ah;
 
-import javax.naming.ldap.SortKey;
-
 /**
  * Hello world!
  */
@@ -27,34 +25,35 @@ public final class App {
         return false;
     }
 
-    public static String convert(int chiffreDepart) {
-        String[] deZeroAVingt = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
-                "nineteen", "twenty" };
+    public static String convert2(int chiffreDepart) {
+        String[] deZeroAVingt = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+                "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
+                "twenty" };
         String[] dizaines = { "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
         String[] centaines = { "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
         int dizainePilePoil = diviserPuisMultiplierPar10LEntier(chiffreDepart);
         int centainePilePoil = diviserPuisMultiplierPar100LEntier(chiffreDepart);
-  
-      
 
-        if (chiffreDepart>220 && cEstUneDizaine(chiffreDepart - 100) && chiffreDepart != centainePilePoil) {
-            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart-200) /10 -1];
+        if (chiffreDepart > 220 && cEstUneDizaine(chiffreDepart - 100) && chiffreDepart != centainePilePoil) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 200) / 10 - 1];
         }
 
-        if (chiffreDepart>200 && chiffreDepart<=220) {
-           return centaines[chiffreDepart / 100 - 1] + " and " + deZeroAVingt[chiffreDepart - centainePilePoil];
+        if (chiffreDepart > 200 && chiffreDepart <= 220) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + deZeroAVingt[chiffreDepart - centainePilePoil];
         }
-        
-        if (centaineSuperieureA120(chiffreDepart) && chiffreDepart != centainePilePoil && chiffreDepart != dizainePilePoil) {
-            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1] + " " + deZeroAVingt[chiffreDepart - dizainePilePoil];
+
+        if (centaineSuperieureA120(chiffreDepart) && chiffreDepart != centainePilePoil
+                && chiffreDepart != dizainePilePoil) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1] + " "
+                    + deZeroAVingt[chiffreDepart - dizainePilePoil];
         }
         if (chiffrePlusGrandQue100EtInferieurOuEgalA120(chiffreDepart)) {
             return centaines[chiffreDepart / 100 - 1] + " and " + deZeroAVingt[chiffreDepart - centainePilePoil];
         }
 
-        if (centaineSuperieureA120(chiffreDepart) && cEstUneDizaine(chiffreDepart - 100) && chiffreDepart != centainePilePoil) {
+        if (centaineSuperieureA120(chiffreDepart) && cEstUneDizaine(chiffreDepart - 100)
+                && chiffreDepart != centainePilePoil) {
             return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1];
         }
 
@@ -99,6 +98,11 @@ public final class App {
 
     private static int diviserPuisMultiplierPar100LEntier(int number) {
         return number / 100 * 100;
+    }
+
+    public static String convert(int input) {
+        MyNumber number = new MyNumber(input);
+        return number.toLetters();
     }
 
 }
