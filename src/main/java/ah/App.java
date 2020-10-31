@@ -32,11 +32,16 @@ public final class App {
                 "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
                 "nineteen", "twenty" };
         String[] theTens = { "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        String[] theHundreds = { "hundred", "two hundred", "three hundred", "four hundred", "five hundred",
+        String[] theHundreds = { "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
-
         int dizainePilePoil = diviserPuisMultiplierPar10LEntier(number);
-        if (number >= 21 && number <= 99 && number != dizainePilePoil) {
+        int centainePilePoil = diviserPuisMultiplierPar100LEntier(number);
+
+        if (number == 110) {
+            return theHundreds[number / 100 -1] + " and " + fromZeroToTwenty[number - centainePilePoil];
+        }
+        
+        if (number > 20 && number < 100 && number != dizainePilePoil) {
             return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - dizainePilePoil];
         }
         
@@ -51,16 +56,22 @@ public final class App {
         return fromZeroToTwenty[number];
     }
 
-    private static int diviserPuisMultiplierPar10LEntier(int number) {
-        return number / 10 * 10;
+    private static boolean cEstUneDizaine(int number) {
+        return number > 20;
     }
-
+    
     private static boolean cEstUneCentaine(int number) {
         return number >= 100;
     }
 
-    private static boolean cEstUneDizaine(int number) {
-        return number >= 30;
+    private static int diviserPuisMultiplierPar10LEntier(int number) {
+        return number / 10 * 10;
     }
+    
+    private static int diviserPuisMultiplierPar100LEntier(int number) {
+        return number / 100 * 100;
+    }
+
+
 
 }
