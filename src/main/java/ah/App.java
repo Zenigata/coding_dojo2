@@ -27,51 +27,70 @@ public final class App {
         return false;
     }
 
-    public static String convert(int number) {
-        String[] fromZeroToTwenty = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    public static String convert(int chiffreDepart) {
+        String[] deZeroAVingt = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
                 "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
                 "nineteen", "twenty" };
-        String[] theTens = { "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        String[] theHundreds = { "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
+        String[] dizaines = { "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+        String[] centaines = { "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
                 "six hundred", "seven hundred", "eight hundred", "nine hundred" };
-        int dizainePilePoil = diviserPuisMultiplierPar10LEntier(number);
-        int centainePilePoil = diviserPuisMultiplierPar100LEntier(number);
-
-        if (number == 110) {
-            return theHundreds[number / 100 -1] + " and " + fromZeroToTwenty[number - centainePilePoil];
-        }
+        int dizainePilePoil = diviserPuisMultiplierPar10LEntier(chiffreDepart);
+        int centainePilePoil = diviserPuisMultiplierPar100LEntier(chiffreDepart);
+  
         
-        if (number > 20 && number < 100 && number != dizainePilePoil) {
-            return theTens[number / 10 - 1] + " " + fromZeroToTwenty[number - dizainePilePoil];
-        }
         
-        if (cEstUneCentaine(number)) {
-            return theHundreds[number / 100 - 1];
+        if (centaineSuperieureA120(chiffreDepart) && chiffreDepart != centainePilePoil && chiffreDepart != dizainePilePoil) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1] + " " + deZeroAVingt[chiffreDepart - dizainePilePoil];
+        }
+        if (chiffrePlusGrandQue100EtInferieurOuEgalA120(chiffreDepart)) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + deZeroAVingt[chiffreDepart - centainePilePoil];
         }
 
-        if (cEstUneDizaine(number)) {
-            return theTens[number / 10 - 1];
+        if (centaineSuperieureA120(chiffreDepart) && cEstUneDizaine(chiffreDepart - 100) && chiffreDepart != centainePilePoil) {
+            return centaines[chiffreDepart / 100 - 1] + " and " + dizaines[(chiffreDepart - 100) / 10 - 1];
         }
 
-        return fromZeroToTwenty[number];
+        if (nombreSuperieurA20HorsDizainePilePoil(chiffreDepart, dizainePilePoil)) {
+            return dizaines[chiffreDepart / 10 - 1] + " " + deZeroAVingt[chiffreDepart - dizainePilePoil];
+        }
+
+        if (cEstUneCentaine(chiffreDepart)) {
+            return centaines[chiffreDepart / 100 - 1];
+        }
+
+        if (cEstUneDizaine(chiffreDepart)) {
+            return dizaines[chiffreDepart / 10 - 1];
+        }
+
+        return deZeroAVingt[chiffreDepart];
     }
 
-    private static boolean cEstUneDizaine(int number) {
-        return number > 20;
+    private static boolean chiffrePlusGrandQue100EtInferieurOuEgalA120(int chiffreDepart) {
+        return chiffreDepart > 100 && chiffreDepart <= 120;
     }
-    
-    private static boolean cEstUneCentaine(int number) {
-        return number >= 100;
+
+    private static boolean centaineSuperieureA120(int chiffreDepart) {
+        return chiffreDepart > 120;
+    }
+
+    private static boolean nombreSuperieurA20HorsDizainePilePoil(int chiffreDepart, int dizainePilePoil) {
+        return chiffreDepart > 20 && chiffreDepart != dizainePilePoil;
+    }
+
+    private static boolean cEstUneDizaine(int chiffreDepart) {
+        return chiffreDepart > 20;
+    }
+
+    private static boolean cEstUneCentaine(int chiffreDepart) {
+        return chiffreDepart >= 100;
     }
 
     private static int diviserPuisMultiplierPar10LEntier(int number) {
         return number / 10 * 10;
     }
-    
+
     private static int diviserPuisMultiplierPar100LEntier(int number) {
         return number / 100 * 100;
     }
-
-
 
 }
